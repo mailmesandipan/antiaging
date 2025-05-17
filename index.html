@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Guide to Healthy Aging: A Modern Look</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 300;
+        }
+        header p {
+            font-size: 1.1em;
+        }
+
+        nav {
+            background-color: #555;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #764ba2;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            opacity: 0; /* For scroll animation */
+            transform: translateY(30px); /* For scroll animation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #667eea;
+            margin: 10px auto 0;
+        }
+
+        h3 {
+            color: #5a5a5a;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fdfdfd;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-left: 5px solid #667eea;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        ul li strong {
+            color: #764ba2;
+        }
+        .emoji-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .disclaimer {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ffeeba;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .disclaimer strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 30px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Simple "Clipart" like animations/visuals */
+        .animated-icon {
+            display: inline-block;
+            font-size: 2em;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+
+        .treatment-card, .supplement-card, .exercise-card, .food-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+        }
+        .card-icon {
+            font-size: 2.5em;
+            margin-right: 20px;
+            color: #667eea;
+            min-width: 50px;
+            text-align: center;
+        }
+        .card-content h4 {
+            margin-top: 0;
+            color: #764ba2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            nav a { padding: 8px 10px; margin: 0 2px; font-size: 0.9em;}
+            h2 { font-size: 1.8em; }
+            .treatment-card, .supplement-card, .exercise-card, .food-card { flex-direction: column; text-align: center; }
+            .card-icon { margin-right: 0; margin-bottom: 10px;}
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span class="animated-icon">✨</span> The Quest for Youthfulness <span class="animated-icon">⏳</span></h1>
+        <p>Exploring Diets, Supplements, Treatments, and Exercises for Healthy Aging</p>
+    </header>
+
+    <nav id="navbar">
+        <a href="#diet">Diet</a>
+        <a href="#supplements">Supplements</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#exercise">Exercise</a>
+        <a href="#lifestyle">Lifestyle</a>
+    </nav>
+
+    <div class="container">
+        <div class="disclaimer">
+            <strong>IMPORTANT HEALTH DISCLAIMER</strong>
+            This information is for educational purposes only and NOT medical advice. Always consult with a qualified healthcare professional before making any changes to your diet, starting new supplements, undergoing treatments, or beginning an exercise program. Individual needs and health conditions vary greatly.
+        </div>
+
+        <section id="intro">
+            <h2>Welcome to Your Aging Well Journey!</h2>
+            <p>Aging is a natural part of life, but how we age is increasingly something we can influence. "Anti-aging" isn't about stopping the clock, but rather about extending our "healthspan" – the years we live in good health, with vitality and vigor. This guide explores popular and emerging strategies discussed worldwide, focusing on what's accessible and understood in simple terms.</p>
+            <p>Remember, consistency and a holistic approach are key. Small, sustainable changes often yield the best long-term results!</p>
+        </section>
+
+        <section id="diet">
+            <h2><span class="emoji-icon">🥗</span> Fueling Longevity: The Anti-Aging Diet</h2>
+            <p>What you eat plays a massive role in how your body ages. Think of food as information for your cells. The goal is to reduce inflammation, fight off cellular damage, and provide essential building blocks.</p>
+
+            <h3>Key Dietary Principles:</h3>
+            <div class="food-card">
+                <div class="card-icon">🌈</div>
+                <div class="card-content">
+                    <h4>Eat the Rainbow (Antioxidants Galore!)</h4>
+                    <p>Brightly colored fruits and vegetables (berries, leafy greens, carrots, tomatoes) are packed with antioxidants. These are like your body's little "superheroes" fighting off "free radicals" – unstable molecules that can damage cells and accelerate aging.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <div class="card-icon">🐟</div>
+                <div class="card-content">
+                    <h4>Healthy Fats are Your Friends</h4>
+                    <p>Omega-3 fatty acids (found in fatty fish like salmon, walnuts, flaxseeds, chia seeds) are crucial for brain health, reducing inflammation, and keeping skin supple. Olive oil is another great source of healthy monounsaturated fats.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <div class="card-icon">🍗</div>
+                <div class="card-content">
+                    <h4>Lean Protein Power</h4>
+                    <p>Protein (from sources like fish, poultry, beans, lentils, tofu) is essential for maintaining muscle mass, which naturally declines with age. Strong muscles support metabolism and mobility.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <div class="card-icon">🌾</div>
+                <div class="card-content">
+                    <h4>Whole Grains for Sustained Energy</h4>
+                    <p>Choose whole grains (oats, quinoa, brown rice, whole wheat bread) over refined grains. They provide fiber, which is good for digestion and helps stabilize blood sugar levels.</p>
+                </div>
+            </div>
+            <div class="food-card">
+                <div class="card-icon">💧</div>
+                <div class="card-content">
+                    <h4>Hydration is Key</h4>
+                    <p>Water is involved in nearly every bodily function. Staying well-hydrated helps keep your skin looking plump, aids digestion, and supports organ function. Aim for plenty of water throughout the day.</p>
+                </div>
+            </div>
+
+            <h3>What to Limit or Avoid:</h3>
+            <ul>
+                <li><span class="emoji-icon">🍬</span><strong>Processed Foods & Sugars:</strong> These can promote inflammation and contribute to "AGEs" (Advanced Glycation End-products), which damage collagen and elastin in your skin.</li>
+                <li><span class="emoji-icon">🍟</span><strong>Unhealthy Fats:</strong> Trans fats and excessive saturated fats can be detrimental to heart health.</li>
+                <li><span class="emoji-icon">🍷</span><strong>Excessive Alcohol:</strong> Can dehydrate the skin and put stress on your organs. Moderation is key.</li>
+            </ul>
+
+            <h3>Emerging Concepts:</h3>
+            <ul>
+                <li><span class="emoji-icon">⏳</span><strong>Caloric Restriction & Intermittent Fasting:</strong> Some research suggests that eating less, or eating within specific time windows, may trigger cellular repair processes linked to longevity. This is an area of active research and should be approached cautiously and ideally under guidance. Examples include the 16/8 method (fast for 16 hours, eat within an 8-hour window).</li>
+            </ul>
+        </section>
+
+        <section id="supplements">
+            <h2><span class="emoji-icon">💊</span> The World of Anti-Aging Supplements</h2>
+            <p>The supplement market is vast. While some supplements have promising research, it's crucial to remember they are not magic bullets and should not replace a healthy diet. <strong>Always consult your doctor before taking any new supplement, as they can interact with medications or have side effects.</strong></p>
+
+            <div class="supplement-card">
+                <div class="card-icon">💪</div>
+                <div class="card-content">
+                    <h4>Collagen Peptides</h4>
+                    <p><strong>Claim:</strong> May improve skin elasticity, hydration, and reduce wrinkles; supports joint health.
+                    <br><strong>Layman's Explanation:</strong> Collagen is a protein that gives skin its structure. Our bodies make less as we age. Supplementing might provide building blocks.
+                    <br><strong>Evidence:</strong> Some studies show positive effects, but results vary. Often sourced from bovine (cow) or marine (fish).</p>
+                </div>
+            </div>
+            <div class="supplement-card">
+                <div class="card-icon">🍇</div>
+                <div class="card-content">
+                    <h4>Resveratrol</h4>
+                    <p><strong>Claim:</strong> Antioxidant with potential anti-aging effects, mimics some benefits of caloric restriction.
+                    <br><strong>Layman's Explanation:</strong> Found in red grapes, berries. Thought to activate "longevity genes" (sirtuins).
+                    <br><strong>Evidence:</strong> Promising in animal studies; human studies are ongoing and less conclusive for significant life extension. May have heart health benefits.</p>
+                </div>
+            </div>
+             <div class="supplement-card">
+                <div class="card-icon">⚡</div>
+                <div class="card-content">
+                    <h4>NAD+ Precursors (NR, NMN)</h4>
+                    <p><strong>Claim:</strong> Boost levels of NAD+, a molecule vital for cellular energy and repair.
+                    <br><strong>Layman's Explanation:</strong> NAD+ levels decline with age. Boosting them might help cells function more youthfully. Nicotinamide Riboside (NR) and Nicotinamide Mononucleotide (NMN) are popular precursors.
+                    <br><strong>Evidence:</strong> Exciting research, mostly in animals. Human trials are underway to determine long-term benefits and optimal dosing.</p>
+                </div>
+            </div>
+            <div class="supplement-card">
+                <div class="card-icon">🐟</div>
+                <div class="card-content">
+                    <h4>Omega-3 Fatty Acids (Fish Oil)</h4>
+                    <p><strong>Claim:</strong> Reduces inflammation, supports brain and heart health, may benefit skin.
+                    <br><strong>Layman's Explanation:</strong> Essential fats our bodies often don't get enough of.
+                    <br><strong>Evidence:</strong> Strong evidence for heart and brain benefits. Good for overall health.</p>
+                </div>
+            </div>
+             <div class="supplement-card">
+                <div class="card-icon">☀️</div>
+                <div class="card-content">
+                    <h4>Vitamin D</h4>
+                    <p><strong>Claim:</strong> Essential for bone health, immune function, and may play a role in mood and longevity.
+                    <br><strong>Layman's Explanation:</strong> The "sunshine vitamin." Many people are deficient, especially in less sunny climates.
+                    <br><strong>Evidence:</strong> Crucial for overall health. Deficiency is linked to various issues. Blood tests can determine your levels.</p>
+                </div>
+            </div>
+            <div class="supplement-card">
+                <div class="card-icon">🎯</div>
+                <div class="card-content">
+                    <h4>Coenzyme Q10 (CoQ10)</h4>
+                    <p><strong>Claim:</strong> Antioxidant, vital for energy production in cells, supports heart health.
+                    <br><strong>Layman's Explanation:</strong> Our bodies produce CoQ10, but levels may decrease with age or with certain medications (like statins).
+                    <br><strong>Evidence:</strong> Some evidence for heart health and reducing statin side effects. May help with energy.</p>
+                </div>
+            </div>
+            <p><strong>Other notable mentions:</strong> Curcumin (from turmeric, anti-inflammatory), Vitamin C & E (antioxidants), Probiotics (gut health, which impacts overall health).</p>
+        </section>
+
+        <section id="treatments">
+            <h2><span class="emoji-icon">🧴</span> Treatments: Skincare & Beyond</h2>
+            <p>External aging signs, especially on the skin, are often a primary concern. A combination of good skincare and professional treatments (if desired) can make a difference.</p>
+
+            <h3>At-Home Skincare Staples:</h3>
+            <div class="treatment-card">
+                <div class="card-icon">☀️</div>
+                <div class="card-content">
+                    <h4>Sunscreen (The #1 Anti-Ager!)</h4>
+                    <p>Daily, broad-spectrum sunscreen (SPF 30+) is non-negotiable. Sun damage is the leading cause of premature wrinkles, age spots, and skin cancer.</p>
+                </div>
+            </div>
+            <div class="treatment-card">
+                <div class="card-icon">🧪</div>
+                <div class="card-content">
+                    <h4>Retinoids (Vitamin A Derivatives)</h4>
+                    <p>Tretinoin (prescription) and Retinol (over-the-counter) are gold standards. They speed up cell turnover, boost collagen, and improve skin texture and tone. Start slowly to avoid irritation.</p>
+                </div>
+            </div>
+            <div class="treatment-card">
+                <div class="card-icon">💧</div>
+                <div class="card-content">
+                    <h4>Moisturizers & Hydrators</h4>
+                    <p>Keeping skin hydrated is key. Look for ingredients like hyaluronic acid (draws moisture), ceramides (strengthen skin barrier), and glycerin.</p>
+                </div>
+            </div>
+            <div class="treatment-card">
+                <div class="card-icon">🍊</div>
+                <div class="card-content">
+                    <h4>Antioxidant Serums</h4>
+                    <p>Vitamin C serums, for example, can help fight free radical damage from pollution and UV rays, and brighten skin.</p>
+                </div>
+            </div>
+
+            <h3>Professional Treatments (Consult a Dermatologist/Qualified Professional):</h3>
+            <ul>
+                <li><span class="emoji-icon">✨</span><strong>Chemical Peels:</strong> Exfoliate the skin to reveal fresher, smoother layers. Vary in strength.</li>
+                <li><span class="emoji-icon">💉</span><strong>Microneedling:</strong> Creates tiny controlled injuries to stimulate collagen production. Can improve texture and scars.</li>
+                <li><span class="emoji-icon">💡</span><strong>LED Light Therapy:</strong> Different colors of light target different concerns (e.g., red for collagen, blue for acne). Non-invasive.</li>
+                <li><span class="emoji-icon">🎯</span><strong>Laser Treatments:</strong> Various lasers can target pigmentation, wrinkles, redness, and tighten skin. Requires expertise.</li>
+                <li><span class="emoji-icon">💉</span><strong>Injectables (Botox & Fillers):</strong> Botox relaxes muscles to reduce dynamic wrinkles. Fillers add volume to smooth lines or enhance features. Results are temporary.</li>
+                <li><span class="emoji-icon">🔬</span><strong>Emerging & Advanced:</strong>
+                    <ul>
+                        <li><strong>Hormone Replacement Therapy (HRT):</strong> Can have benefits for some aging symptoms in men and women, but also carries risks. Requires careful medical supervision.</li>
+                        <li><strong>Senolytics:</strong> Drugs being researched to clear out "senescent" (old, non-functioning) cells that contribute to aging. Still experimental.</li>
+                        <li><strong>Platelet-Rich Plasma (PRP):</strong> Uses your own blood components to stimulate healing and rejuvenation. Used for skin and hair.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="exercise">
+            <h2><span class="emoji-icon">🏃‍♀️</span> Move Your Way to Youthfulness</h2>
+            <p>Exercise is one of the most powerful anti-aging tools available. It benefits nearly every system in your body.</p>
+
+            <div class="exercise-card">
+                <div class="card-icon">❤️</div>
+                <div class="card-content">
+                    <h4>Cardiovascular Exercise (Aerobic)</h4>
+                    <p><strong>Examples:</strong> Brisk walking, running, swimming, cycling, dancing.
+                    <br><strong>Benefits:</strong> Strengthens heart and lungs, improves circulation, boosts mood, helps manage weight, improves sleep. Aim for at least 150 minutes of moderate-intensity per week.</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <div class="card-icon">🏋️</div>
+                <div class="card-content">
+                    <h4>Strength Training (Resistance)</h4>
+                    <p><strong>Examples:</strong> Lifting weights, using resistance bands, bodyweight exercises (squats, push-ups).
+                    <br><strong>Benefits:</strong> Builds and maintains muscle mass (crucial for metabolism and strength as we age), strengthens bones (helps prevent osteoporosis), improves body composition. Aim for 2-3 sessions per week.</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <div class="card-icon">🤸</div>
+                <div class="card-content">
+                    <h4>Flexibility & Balance</h4>
+                    <p><strong>Examples:</strong> Stretching, yoga, Tai Chi, Pilates.
+                    <br><strong>Benefits:</strong> Improves range of motion, reduces risk of injury, enhances balance (important for fall prevention), can relieve stress. Incorporate daily or several times a week.</p>
+                </div>
+            </div>
+            <div class="exercise-card">
+                <div class="card-icon">🧠</div>
+                <div class="card-content">
+                    <h4>Mind-Body Exercises</h4>
+                    <p><strong>Examples:</strong> Yoga, Tai Chi.
+                    <br><strong>Benefits:</strong> Combines physical movement with mindfulness and breathwork. Reduces stress, improves mental clarity, enhances body awareness.</p>
+                </div>
+            </div>
+            <p><strong>Key Takeaway:</strong> Find activities you enjoy! Consistency is more important than intensity when starting out. Even short bursts of activity throughout the day add up.</p>
+        </section>
+
+        <section id="lifestyle">
+            <h2><span class="emoji-icon">🌟</span> Beyond the Basics: Lifestyle Factors</h2>
+            <p>Healthy aging is not just about individual interventions but a way of life.</p>
+            <ul>
+                <li><span class="emoji-icon">😴</span><strong>Quality Sleep:</strong> Crucial for cellular repair, hormone regulation, and cognitive function. Aim for 7-9 hours per night. Create a restful sleep environment.</li>
+                <li><span class="emoji-icon">🧘</span><strong>Stress Management:</strong> Chronic stress accelerates aging. Practice mindfulness, meditation, deep breathing, spend time in nature, or engage in hobbies.</li>
+                <li><span class="emoji-icon">🤝</span><strong>Social Connection:</strong> Strong social ties are linked to better mental and physical health, and even longevity. Nurture relationships.</li>
+                <li><span class="emoji-icon">🧠</span><strong>Lifelong Learning:</strong> Keep your brain active and engaged. Learn new skills, read, do puzzles, stay curious.</li>
+                <li><span class="emoji-icon">🚭</span><strong>Avoid Smoking & Limit Toxins:</strong> Smoking is a major accelerator of aging and disease. Be mindful of environmental toxin exposure.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>The Journey Continues...</h2>
+            <p>The science of aging is constantly evolving. What we know today is that a proactive, holistic approach encompassing a nutrient-rich diet, regular exercise, smart skincare, stress management, and strong social connections offers the best path to aging gracefully and healthfully.</p>
+            <p>Start small, be patient with yourself, and focus on creating sustainable habits. The quest for youthfulness is ultimately about living your fullest, healthiest life at every age!</p>
+        </section>
+
+        <div class="disclaimer">
+            <strong>Final Reminder: Medical Advice</strong>
+            The information provided here is for general guidance and informational purposes only, and does not constitute medical advice. It is essential to consult with a qualified healthcare professional for any health concerns or before making any decisions related to your health or treatment.
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Healthy Aging Guide. Stay Curious, Stay Healthy!</p>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple scroll animation for sections
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of section visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Highlight nav link
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                } else {
+                    // Optional: remove 'visible' class if you want animation to repeat on scroll up
+                    // entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth scrolling for nav links
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Get the top position of the target element
+                    let targetPosition = targetElement.offsetTop;
+        
+                    // Adjust for sticky navbar height if present
+                    const navbar = document.getElementById('navbar');
+                    if (navbar && getComputedStyle(navbar).position === 'sticky') {
+                        targetPosition -= navbar.offsetHeight;
+                    }
+        
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll (more precise)
+        window.addEventListener('scroll', () => {
+            let currentSectionId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                if (pageYOffset >= sectionTop - navbarHeight - 50) { // 50px offset for better timing
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSectionId) {
+                    link.classList.add('active');
+                }
+            });
+             // If at top, no section is active, or make first active
+            if (window.pageYOffset < sections[0].offsetTop - document.getElementById('navbar').offsetHeight - 50) {
+                 navLinks.forEach(link => link.classList.remove('active'));
+                 // Optionally, activate the first link if you always want one active:
+                 // if (navLinks.length > 0) navLinks[0].classList.add('active');
+            }
+        });
+
+    </script>
+
+</body>
+</html>
